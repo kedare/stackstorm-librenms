@@ -1,18 +1,23 @@
 import requests
 
 from st2common.runners.base_action import Action
+from typing import Mapping, Any
 
 
-class LibreNMSApiBaseAction(Action):
+class LibreNMSBaseAction(Action):
+    """
+    Base action for LibreNMS, to be inherited from.
+    """
 
-    api_key = None
-    api_root = None
-    api_call = None
-    method = None
-    payload = None
+    api_key: str = None
+    api_root: str = None
+    api_call: str = None
+    method: str = None
+    params: Mapping[str, str] = {}
+    payload: Mapping[str, Any] = None
 
     def __init__(self, config):
-        super().__init__(self, config)
+        super().__init__(config)
         try:
             self.api_key = self.config["api_key"]
             self.api_root = self.config["api_root"]
@@ -24,12 +29,15 @@ class LibreNMSApiBaseAction(Action):
             response = requests.request(
                 method=self.method,
                 url=f"{self.api_root}/{self.api_call}",
+                params=self.params,
                 headers={"X-Auth-Token": self.api_key},
-                data=self.payload
+                data=self.payload,
             )
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
             raise ValueError("Error during HTTP request: {e}")
 
-        return response.json()
+        return self._response(response)
 
+    def _response(self, response: requests.Response) -> requests.Response:
+        return response.json()

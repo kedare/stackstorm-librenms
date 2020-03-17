@@ -1,0 +1,13 @@
+---
+name: get_port
+description: Get a port by ID
+runner_type: python-script
+entry_point: get_port.py
+enabled: true
+parameters:
+  port_id:
+    required: true
+    type: integer
+    description: "Port ID to get"
+    position: 0
+

@@ -1,0 +1,30 @@
+---
+name: get_devices
+description: Get devices
+runner_type: python-script
+entry_point: get_devices.py
+enabled: true
+parameters:
+  type:
+    required: false
+    type: string
+    description: "Type of search"
+    position: 0
+    enum:
+      - all
+      - active
+      - ignored
+      - up
+      - down
+      - disabled
+      - os
+      - mac
+      - ipv4
+      - ipv6
+      - location
+      - hostname
+  query:
+    required: false
+    type: string
+    description: "Filter query"
+    position: 1

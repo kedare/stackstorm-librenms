@@ -1,0 +1,31 @@
+---
+class_name: "EventlogSensor"
+entry_point: "eventlog.py"
+description: "Sensor which monitors LibreNMS Eventlog"
+poll_interval: 15
+trigger_types:
+  - name: "eventlog"
+    description: "Trigger when a new entry is detected in the Eventlog"
+    payload_schema:
+      type: "object"
+      properties:
+        hostname:
+          type: "string"
+        sysName:
+          type: "string"
+        host:
+          type: "integer"
+        event_id:
+          type: "integer"
+        device_id:
+          type: "integer"
+        message:
+          type: "string"
+        type:
+          type: "string"
+        reference:
+          type: "string"
+        username:
+          type: "string"
+        severity:
+          type: "integer"

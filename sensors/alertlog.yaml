@@ -1,0 +1,30 @@
+---
+class_name: "AlertlogSensor"
+entry_point: "alertlog.py"
+description: "Sensor which monitors LibreNMS Alertlog"
+poll_interval: 15
+trigger_types:
+  - name: "alertlog"
+    description: "Trigger when a new entry is detected in the Alertlog"
+    payload_schema:
+      type: "object"
+      properties:
+        hostname:
+          type: "string"
+        sysName:
+          type: "string"
+        id:
+          type: "integer"
+        rule_id:
+          type: "integer"
+        device_id:
+          type: "integer"
+        state:
+          type: "integer"
+        time_logged:
+          type: "string"
+        details:
+          type: "object"
+          properties:
+            interval:
+              type: "integer"

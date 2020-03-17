@@ -8,10 +8,10 @@ name: LibreNMS
 description: Interactions with LibreNMS
 # Keywords which are used when searching for packs.
 keywords:
-    - librenms
-    - network
+  - librenms
+  - network
 # Pack version which must follow semver format (<major>.<minor>.<patch> e.g. 1.0.0)
-version: 0.0.1
+version: 0.0.2
 # A list of major Python versions pack is tested with and works with.
 python_versions:
   - "3"

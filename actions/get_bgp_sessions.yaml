@@ -5,6 +5,23 @@ runner_type: python-script
 entry_point: get_bgp_sessions.py
 enabled: true
 parameters:
-  remote_asn:
-    required: true
+  asn:
+    required: false
     type: integer
+    description: "Local ASN"
+    position: 0
+  remote_asn:
+    required: false
+    type: integer
+    description: "Remote peer ASN"
+    position: 1
+  local_address:
+    required: false
+    type: string
+    description: "Local IP address"
+    position: 2
+  remote_address:
+    required: false
+    type: string
+    description: "Remote IP address"
+    position: 3

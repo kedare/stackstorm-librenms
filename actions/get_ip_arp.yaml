@@ -1,0 +1,12 @@
+---
+name: get_ip_arp
+description: Get devices
+runner_type: python-script
+entry_point: get_ip_arp.py
+enabled: true
+parameters:
+  ip:
+    required: true
+    type: string
+    description: "IP to lookup"
+
