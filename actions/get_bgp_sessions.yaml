@@ -1,0 +1,10 @@
+---
+name: get_bgp_sessions
+description: Get BGP sessions
+runner_type: python-script
+entry_point: get_bgp_sessions.py
+enabled: true
+parameters:
+  remote_asn:
+    required: true
+    type: integer
