@@ -1,0 +1,12 @@
+---
+name: get_fdb
+description: Get the related FDB entries
+runner_type: python-script
+entry_point: get_fdb.py
+enabled: true
+parameters:
+  fdb:
+    required: true
+    type: string
+    description: "MAC to lookup"
+

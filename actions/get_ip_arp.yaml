@@ -1,6 +1,6 @@
 ---
 name: get_ip_arp
-description: Get devices
+description: Get the related ARP entries
 runner_type: python-script
 entry_point: get_ip_arp.py
 enabled: true

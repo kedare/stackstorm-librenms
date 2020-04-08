@@ -28,4 +28,5 @@ You have sensors to trigger event when new entries are detected in `eventlog` an
 - `get_bgp_sessions` : Get BGP sessions matching criteria 
 - `get_devices` : Get devices matching criteria (will also return more data depending of the search type, for example the port data for a search by ipv4/ipv6)
 - `get_port`: Get data about a port
-- `get_ip_arp`: Get ARP binding for a specific IP
+- `get_ip_arp`: Get ARP bindings for a specific IP address
+- `get_fdb`: Get FDB entries for a specific MAC address
