@@ -5,7 +5,7 @@ runner_type: python-script
 entry_point: get_fdb.py
 enabled: true
 parameters:
-  fdb:
+  mac:
     required: true
     type: string
     description: "MAC to lookup"
