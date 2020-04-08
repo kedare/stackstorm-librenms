@@ -1,7 +1,7 @@
 from lib.actions import LibreNMSBaseAction
 
 
-class GetIPARP(LibreNMSBaseAction):
+class GetFDB(LibreNMSBaseAction):
     """Get FDB information"""
 
     method = "get"
