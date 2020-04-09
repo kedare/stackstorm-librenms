@@ -25,3 +25,8 @@ parameters:
     type: string
     description: "Remote IP address"
     position: 3
+  hostname:
+    required: false
+    type: string
+    description: "Hostname of device ID of the device holding the sessions"
+    position: 4
