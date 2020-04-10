@@ -37,7 +37,10 @@ class LibreNMSBasePollingSensor(PollingSensor):
             response = requests.request(
                 method=self.method,
                 url=url,
-                headers={"X-Auth-Token": self.api_key},
+                headers={
+                    "X-Auth-Token": self.api_key,
+                    "User-Agent": f"StackStorm LibreNMS Pack: {self.__class__.__name__}"
+                },
                 data=self.payload,
                 params=self._build_params(),
             )
