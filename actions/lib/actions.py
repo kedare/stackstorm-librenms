@@ -30,7 +30,10 @@ class LibreNMSBaseAction(Action):
                 method=self.method,
                 url=f"{self.api_root}/{self.api_call}",
                 params=self.params,
-                headers={"X-Auth-Token": self.api_key},
+                headers={
+                    "X-Auth-Token": self.api_key,
+                    "User-Agent": f"StackStorm LibreNMS Pack: {self.__class__.__name__}"
+                },
                 data=self.payload,
             )
             response.raise_for_status()
