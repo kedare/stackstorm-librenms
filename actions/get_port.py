@@ -1,6 +1,7 @@
 from lib.actions import LibreNMSBaseAction
 from urllib.parse import quote
 
+
 class GetPort(LibreNMSBaseAction):
     """Get a port"""
 

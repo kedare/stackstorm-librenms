@@ -9,3 +9,8 @@ api_root:
   type: "string"
   secret: false
   required: true
+ssl_verify:
+  description: "Should the SSL certificate be verified when connecting over TLS"
+  type: boolean
+  secret: false
+  required: true

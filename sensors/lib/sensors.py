@@ -2,17 +2,19 @@ from datetime import datetime
 
 import requests
 from st2reactor.sensor.base import PollingSensor
+from typing import Mapping
 
 
 class LibreNMSBasePollingSensor(PollingSensor):
-    api_key = None
-    api_root = None
-    api_call = None
-    method = None
-    params = {}
-    payload = None
-    last_poll = None
-    trigger_name = None
+    api_key: str = None
+    api_root: str = None
+    api_call: str = None
+    ssl_verify: bool = None
+    method: str = None
+    params: Mapping[str, str] = {}
+    payload: Mapping[str, str] = None
+    last_poll: datetime = None
+    trigger_name: str = None
     logger = None
 
     def _build_params(self):
@@ -23,6 +25,7 @@ class LibreNMSBasePollingSensor(PollingSensor):
         try:
             self.api_key = self._config["api_key"]
             self.api_root = self._config["api_root"]
+            self.ssl_verify = self.config["ssl_verify"]
         except KeyError:
             raise ValueError("api_key and api_root need to be configured!")
 
@@ -39,10 +42,11 @@ class LibreNMSBasePollingSensor(PollingSensor):
                 url=url,
                 headers={
                     "X-Auth-Token": self.api_key,
-                    "User-Agent": f"StackStorm LibreNMS Pack: {self.__class__.__name__}"
+                    "User-Agent": f"StackStorm LibreNMS Pack: {self.__class__.__name__}",
                 },
                 data=self.payload,
                 params=self._build_params(),
+                verify=self.ssl_verify,
             )
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:

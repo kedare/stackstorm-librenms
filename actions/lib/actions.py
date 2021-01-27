@@ -11,6 +11,7 @@ class LibreNMSBaseAction(Action):
 
     api_key: str = None
     api_root: str = None
+    ssl_verify: bool = None
     api_call: str = None
     method: str = None
     params: Mapping[str, str] = {}
@@ -21,6 +22,7 @@ class LibreNMSBaseAction(Action):
         try:
             self.api_key = self.config["api_key"]
             self.api_root = self.config["api_root"]
+            self.ssl_verify = self.config["ssl_verify"]
         except KeyError:
             raise ValueError("api_key and api_root need to be configured!")
 
@@ -32,9 +34,10 @@ class LibreNMSBaseAction(Action):
                 params=self.params,
                 headers={
                     "X-Auth-Token": self.api_key,
-                    "User-Agent": f"StackStorm LibreNMS Pack: {self.__class__.__name__}"
+                    "User-Agent": f"StackStorm LibreNMS Pack: {self.__class__.__name__}",
                 },
                 data=self.payload,
+                verify=self.ssl_verify
             )
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
