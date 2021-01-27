@@ -1,0 +1,13 @@
+---
+name: get_links
+description: Get network links
+runner_type: python-script
+entry_point: get_links.py
+enabled: true
+parameters:
+  hostname:
+    required: true
+    type: string
+    description: "Hostname"
+    position: 0
+

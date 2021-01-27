@@ -1,0 +1,13 @@
+---
+name: get_link
+description: Get a network link
+runner_type: python-script
+entry_point: get_link.py
+enabled: true
+parameters:
+  link_id:
+    required: true
+    type: integer
+    description: "Link ID to get"
+    position: 0
+
