@@ -2,7 +2,7 @@ from lib.actions import LibreNMSBaseAction
 
 
 class GetBGPSessions(LibreNMSBaseAction):
-    """Get BGP sessions matching """
+    """Get BGP sessions"""
 
     method = "get"
 
